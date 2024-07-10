@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS noticias (
     contenido TEXT,
     autor_id INT,
     fecha_publicacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (autor_id) REFERENCES usuarios(id_u)
+    FOREIGN KEY (autor_id) REFERENCES usuario(id_u)
 );
 
 -- Tabla de Comentarios
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS comentarios (
     usuario_id INT,
     noticia_id INT,
     fecha_comentario TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_u),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id_u),
     FOREIGN KEY (noticia_id) REFERENCES noticias(id)
 );
 
@@ -40,5 +40,7 @@ CREATE TABLE IF NOT EXISTS reportes_comentarios (
     usuario_reporte_id INT,
     fecha_reporte TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (comentario_id) REFERENCES comentarios(id),
-    FOREIGN KEY (usuario_reporte_id) REFERENCES usuarios(id_u)
+    FOREIGN KEY (usuario_reporte_id) REFERENCES usuario(id_u)
 );
+select*from usuario;
+INSERT INTO usuario (usuario, correo, contrasena) VALUES ('Juan', 'juan@gmail.com', '123456');
